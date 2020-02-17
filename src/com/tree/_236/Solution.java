@@ -1,0 +1,37 @@
+package com.tree._236;
+
+import com.basic.TreeNode;
+
+/**
+ * Created by Ai Lun on 2019-06-25.
+ */
+public class Solution {
+
+    //public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+    //    if (root == null || root == p || root == q) {
+    //        return root;
+    //    }
+    //    TreeNode left = lowestCommonAncestor(root.left, p, q);
+    //    TreeNode right = lowestCommonAncestor(root.right, p, q);
+    //    if (left != null && right != null) {
+    //        return root;
+    //    }
+    //    if (left != null) {
+    //        return left;
+    //    }
+    //    return right;
+    //}
+
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null || root == p || root == q) {
+            return root;
+        }
+        TreeNode left = lowestCommonAncestor(root.left, p, q);
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
+        if (left != null && right != null) {
+            return root;
+        }
+        return left != null ? left : right;
+    }
+
+}
